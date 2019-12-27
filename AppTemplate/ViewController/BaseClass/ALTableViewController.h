@@ -9,6 +9,7 @@
 #import "ALViewController.h"
 #import "ALTableView.h"
 #import "ALTableViewModel.h"
+#import "JKSkeletonLoader.h"
 
 @interface ALTableViewController : ALViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 

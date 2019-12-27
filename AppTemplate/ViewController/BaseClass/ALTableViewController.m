@@ -8,7 +8,6 @@
 
 #import "ALTableViewController.h"
 #import "UITableView+AL_ReloadData.h"
-#import "JKSkeletonLoader.h"
 
 @interface ALTableViewController ()
 /// tableView
@@ -21,9 +20,9 @@
 @property (nonatomic, readwrite, assign) CGFloat tableviewBottom;
 ///上一次请求的数据数量
 @property (nonatomic, readwrite, assign) NSInteger lastDataSourceCount;
+
 /// 视图模型
 @property (nonatomic, readonly, strong) ALTableViewModel *viewModel;
-
 @property (nonatomic, readonly, strong) JKSkeletonLoader *skeletonLoader;
 
 @end
@@ -85,7 +84,11 @@
                 if (self.viewModel.shouldAddLodingAnimate) {
                     [self addLoadingAnimate];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self.viewModel.requestRemoteDataCommand execute:@1];
+                        @weakify(self);
+                        [[[self.viewModel.requestRemoteDataCommand execute:@1] deliverOnMainThread] subscribeError:^(NSError *error) {
+                            @strongify(self);
+                            self.viewModel.dataSource = @[];
+                        }];
                     });
                 }else{
                     [self.viewModel.requestRemoteDataCommand execute:@1];
@@ -186,6 +189,9 @@
          @strongify(self)
          /// 已经在bindViewModel中添加了对viewModel.dataSource的变化的监听来刷新数据,所以reload = NO即可
          [self.tableView.mj_header endRefreshing];
+         if (self.viewModel.shouldAddLodingAnimate) {
+             self.viewModel.dataSource = @[];
+         }
      } completed:^{
          @strongify(self)
          /// 已经在bindViewModel中添加了对viewModel.dataSource的变化的监听来刷新数据,所以只要结束刷新即可
@@ -199,7 +205,7 @@
     @weakify(self);
     [[[self.viewModel.requestRemoteDataCommand
        execute:@(self.viewModel.page + 1)]
-      deliverOnMainThread]  
+      deliverOnMainThread]
      subscribeNext:^(id x) {
          @strongify(self)
          self.viewModel.page += 1;
@@ -298,7 +304,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.viewModel.shouldMultiSections) return [self.viewModel.dataSource[section] count];
-    return self.viewModel.dataSource.count; 
+    return self.viewModel.dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
