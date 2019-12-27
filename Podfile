@@ -18,7 +18,7 @@ target 'AppTemplate' do
   # 颜色分类
   pod 'Colours'                           , '5.13.0'
   # 网络请求
-  pod 'AFNetworking'                     
+  pod 'AFNetworking'
   # 键盘管理
   pod 'IQKeyboardManager'
   pod 'FDFullscreenPopGesture'            , '1.1'

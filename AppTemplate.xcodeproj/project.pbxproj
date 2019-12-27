@@ -98,8 +98,8 @@
 		8359411F236073D200AAEF96 /* ALHTTPService+LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359411E236073D200AAEF96 /* ALHTTPService+LoginRequest.m */; };
 		836071A02366B41700A4024F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360719F2366B41600A4024F /* CoreTelephony.framework */; };
 		8363448623B1DBB500F66E85 /* ALAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8363448523B1DBB500F66E85 /* ALAdModel.m */; };
-		8363448A23B1DC4500F66E85 /* JKSkeletonLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8363448823B1DC4500F66E85 /* JKSkeletonLoader.m */; };
 		8385FF03238516DC00972CFE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8385FF02238516DC00972CFE /* UserNotifications.framework */; };
+		83D36D1323B6044C00AF4290 /* JKSkeletonLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D36D1123B6044B00AF4290 /* JKSkeletonLoader.m */; };
 		83D633ED239DFED60094CCDE /* NSURLSessionTask+BindDeallocSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D633EC239DFED60094CCDE /* NSURLSessionTask+BindDeallocSignal.m */; };
 		83E0438E2356C0950044EB5D /* ALTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0438D2356C0950044EB5D /* ALTableModel.m */; };
 /* End PBXBuildFile section */
@@ -310,10 +310,11 @@
 		8360719F2366B41600A4024F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8363448423B1DBB500F66E85 /* ALAdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAdModel.h; sourceTree = "<group>"; };
 		8363448523B1DBB500F66E85 /* ALAdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAdModel.m; sourceTree = "<group>"; };
-		8363448823B1DC4500F66E85 /* JKSkeletonLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSkeletonLoader.m; sourceTree = "<group>"; };
-		8363448923B1DC4500F66E85 /* JKSkeletonLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKSkeletonLoader.h; sourceTree = "<group>"; };
 		8385FF02238516DC00972CFE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8385FF04238516FC00972CFE /* 门神.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "门神.entitlements"; sourceTree = "<group>"; };
+		83D36D0C23B6037B00AF4290 /* JKSkeletonLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKSkeletonLoader.m; sourceTree = "<group>"; };
+		83D36D1123B6044B00AF4290 /* JKSkeletonLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSkeletonLoader.m; sourceTree = "<group>"; };
+		83D36D1223B6044C00AF4290 /* JKSkeletonLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKSkeletonLoader.h; sourceTree = "<group>"; };
 		83D633EB239DFED60094CCDE /* NSURLSessionTask+BindDeallocSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+BindDeallocSignal.h"; sourceTree = "<group>"; };
 		83D633EC239DFED60094CCDE /* NSURLSessionTask+BindDeallocSignal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+BindDeallocSignal.m"; sourceTree = "<group>"; };
 		83E0438C2356C0950044EB5D /* ALTableModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALTableModel.h; sourceTree = "<group>"; };
@@ -359,6 +360,7 @@
 		8330B9642334BCF5008D6D76 = {
 			isa = PBXGroup;
 			children = (
+				83D36D0C23B6037B00AF4290 /* JKSkeletonLoader.m */,
 				8330B96F2334BCF5008D6D76 /* AppTemplate */,
 				8330B9882334BCF8008D6D76 /* AppTemplateTests */,
 				8330B9932334BCF8008D6D76 /* AppTemplateUITests */,
@@ -1036,8 +1038,8 @@
 		8363448723B1DC4500F66E85 /* LoadingSkeletonView */ = {
 			isa = PBXGroup;
 			children = (
-				8363448823B1DC4500F66E85 /* JKSkeletonLoader.m */,
-				8363448923B1DC4500F66E85 /* JKSkeletonLoader.h */,
+				83D36D1223B6044C00AF4290 /* JKSkeletonLoader.h */,
+				83D36D1123B6044B00AF4290 /* JKSkeletonLoader.m */,
 			);
 			name = LoadingSkeletonView;
 			path = ../../../AppTemplate/AppTemplate/Vender/LoadingSkeletonView;
@@ -1088,7 +1090,7 @@
 				8330B9692334BCF5008D6D76 /* Sources */,
 				8330B96A2334BCF5008D6D76 /* Frameworks */,
 				8330B96B2334BCF5008D6D76 /* Resources */,
-				DCB90776C559CB6FB76EC7A1 /* [CP] Embed Pods Frameworks */,
+				A430C2F16F40F9B037354D74 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1209,6 +1211,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A430C2F16F40F9B037354D74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BDFB9EDEC3D8155A05094EDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1275,23 +1294,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCB90776C559CB6FB76EC7A1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1355,9 +1357,9 @@
 				8330BF0E2334C290008D6D76 /* ALLoginViewController.m in Sources */,
 				8330BB242334C279008D6D76 /* UIButton+ImageTitleSpacing.m in Sources */,
 				8330BAB32334C26E008D6D76 /* ALBaseModel.m in Sources */,
+				83D36D1323B6044C00AF4290 /* JKSkeletonLoader.m in Sources */,
 				8330BB3F2334C279008D6D76 /* ALCommonHelper.m in Sources */,
 				8330BE0B2334C28A008D6D76 /* ALControl.m in Sources */,
-				8363448A23B1DC4500F66E85 /* JKSkeletonLoader.m in Sources */,
 				8330BB792334C280008D6D76 /* YYTimer.m in Sources */,
 				8330BB772334C280008D6D76 /* YYGestureRecognizer.m in Sources */,
 				8330BEF62334C28F008D6D76 /* ALTabBarController.m in Sources */,

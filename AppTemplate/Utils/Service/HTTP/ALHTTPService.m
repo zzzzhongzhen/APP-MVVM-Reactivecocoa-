@@ -69,7 +69,7 @@ static id service_ = nil;
     });
     return service_;
 }
-- (id)copyWithZone:(NSZone *)zone {  
+- (id)copyWithZone:(NSZone *)zone {
     return service_;
 }
 -(ALKeyedSubscript *)dataTaskDic {
@@ -214,7 +214,6 @@ static id service_ = nil;
 //    [self.dataTaskDic setObject:task forKeyedSubscript:task.currentRequest.URL.absoluteString];
 //    NSLog(@"set: URL===url:%@ paremter:%@",task.currentRequest.URL.absoluteString,parameters);
     
-    
     /// 发起请求
     /// concat:按一定顺序拼接信号，当多个信号发出的时候，有顺序的接收信号。 这里传进去的参数，不是parameters而是之前通过
     /// urlParametersWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters;穿进去的参数
@@ -297,10 +296,10 @@ static id service_ = nil;
                     if (task.error != nil) userInfo[NSUnderlyingErrorKey] = task.error;
                     NSError *requestError = [NSError errorWithDomain:MHHTTPServiceErrorDomain code:statusCode userInfo:userInfo];
                     [self HTTPRequestLog:responseObject path:request.URL body:parameters error:requestError];
-                    [MBProgressHUD mh_hideHUD];
+//                    [MBProgressHUD mh_hideHUD];
                     [MBProgressHUD mh_showTips:msgTips];
                     
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         if (statusCode == MHHTTPResponseCodeNotLogin || statusCode == MHHTTPResponseCodeNotCerticate || statusCode == MHHTTPResponseCodeAcountNeedLogin) {
                             [self deleteUser];
                             ALLoginViewModel *viewModel = [[ALLoginViewModel alloc] initWithServices:MHSharedAppDelegate.services params:nil];
@@ -313,8 +312,8 @@ static id service_ = nil;
         }];
         /// 开启请求任务
         [task resume];
-        /// 开启监听页面销毁信号
-        [task bindViewControllerDealloc];
+//        /// 开启监听页面销毁信号
+//        [task bindViewControllerDealloc];
         
         return [RACDisposable disposableWithBlock:^{
             [task cancel];
@@ -529,8 +528,8 @@ static id service_ = nil;
     userInfo[MHHTTPServiceErrorDescriptionKey] = errorDesc;
     if (task.currentRequest.URL != nil) userInfo[MHHTTPServiceErrorRequestURLKey] = task.currentRequest.URL.absoluteString;
     if (task.error != nil) userInfo[NSUnderlyingErrorKey] = task.error;
-    if (![task.currentRequest.URL.absoluteString containsString:@"owner/getUserInfo"]) {
-        [MBProgressHUD mh_hideHUD];
+    if (![task.currentRequest.URL.absoluteString containsString:@"owner/getUserInfo"] &&
+        ![task.currentRequest.URL.absoluteString containsString:@"owner/logout"]) {
         [MBProgressHUD mh_showTips:errorDesc];
     }
     return [NSError errorWithDomain:MHHTTPServiceErrorDomain code:errorCode userInfo:userInfo];

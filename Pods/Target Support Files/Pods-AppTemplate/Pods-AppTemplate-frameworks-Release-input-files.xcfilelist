@@ -1,0 +1,21 @@
+${PODS_ROOT}/Target Support Files/Pods-AppTemplate/Pods-AppTemplate-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/CRBoxInputView/CRBoxInputView.framework
+${BUILT_PRODUCTS_DIR}/CocoaSecurity/CocoaSecurity.framework
+${BUILT_PRODUCTS_DIR}/Colours/Colours.framework
+${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/PPBadgeView/PPBadgeView.framework
+${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework
+${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework
+${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework
+${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework
+${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework
+${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework
+${BUILT_PRODUCTS_DIR}/YYText/YYText.framework
+${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework
