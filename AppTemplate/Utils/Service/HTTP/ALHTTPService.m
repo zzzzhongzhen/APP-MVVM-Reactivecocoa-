@@ -97,7 +97,7 @@ static id service_ = nil;
     self.currentUser = nil;
     BOOL status = [[NSFileManager defaultManager] removeItemAtPath:MHFilePathFromWeChatDoc(MHUserDataFileName) error:nil];
     NSLog(@"Delete login user data ， the status is %@",status?@"Success...":@"Failure...");
-        
+    
     //发出登录状态改变通知
     POST_NOTIFICATION(MHLoginStatusChangeNoti);
 }
@@ -262,10 +262,10 @@ static id service_ = nil;
                     [MBProgressHUD mh_hideHUD];
                     [subscriber sendCompleted];
                 }else {
+                    [self.noNetworkSubject sendNext:@1];
                     NSError *parseError = [self _errorFromRequestWithTask:task httpResponse:(NSHTTPURLResponse *)response responseObject:responseObject error:error];
                     [self HTTPRequestLog:responseObject path:request.URL body:parameters error:parseError];
                     [subscriber sendError:parseError];
-                    [self.noNetworkSubject sendNext:@1];
                 }
             } else {
                 [self.noNetworkSubject sendNext:@0];

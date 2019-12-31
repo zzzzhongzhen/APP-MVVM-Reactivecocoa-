@@ -102,7 +102,7 @@
 }
 -(UIView *)noNetworkView {
     if (!_noNetworkView) {
-        _noNetworkView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT)];
+        _noNetworkView = [[UIView alloc] initWithFrame:CGRectMake(0, MH_APPLICATION_TOP_BAR_HEIGHT, MH_SCREEN_WIDTH, MH_SCREEN_HEIGHT)];
         _noNetworkView.backgroundColor = MH_WHITECOLOR;
         _noNetworkView.userInteractionEnabled = YES;
         UIImage *image = MHImageNamed(@"wangluoyichang_icon");
@@ -131,22 +131,22 @@
     [self.viewModel.errors subscribeNext:^(NSError *error) {
         /// 这里可以统一处理某个错误，例如用户授权失效的的操作
         NSLog(@"...错误...");
-    }];         
+    }];
     /// 动态改变是否允许侧滑返回手势
     [[[RACObserve(self.viewModel, interactivePopDisabled) distinctUntilChanged] deliverOnMainThread] subscribeNext:^(NSNumber * x) {
         @strongify(self);
         self.fd_interactivePopDisabled = x.boolValue;
     }];
     [self.viewModel.services.client.noNetworkSubject subscribeNext:^(NSNumber *x) {
-//        @strongify(self);
-//        if (x.integerValue) {
-//            if (self.viewModel.retryRequestHandle) {
-//                [self.view addSubview:self.noNetworkView];
-//            }
-//        }else{
-//            [self.noNetworkView removeFromSuperview];
-//            self.noNetworkView = nil;
-//        }
+        @strongify(self);
+        if (x.integerValue) {
+            if (self.viewModel.retryRequestHandle) {
+                [self.view addSubview:self.noNetworkView];
+            }
+        }else{
+            [self.noNetworkView removeFromSuperview];
+            self.noNetworkView = nil;
+        }
     }];
 }
 - (void)back {

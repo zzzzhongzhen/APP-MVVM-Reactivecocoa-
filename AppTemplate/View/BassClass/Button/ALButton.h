@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface ALButton : UIButton
 
++(instancetype)commonInit ;
+
 @end
 
 NS_ASSUME_NONNULL_END
