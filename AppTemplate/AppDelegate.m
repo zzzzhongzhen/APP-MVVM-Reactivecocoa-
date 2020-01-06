@@ -38,6 +38,7 @@ static NSDateFormatter *formatter = nil;
     [self.window makeKeyAndVisible];
     [self.services resetRootViewModel:[self _createInitialViewModel]];
     
+    
     return YES;
 }
 - (ALViewModel *)_createInitialViewModel {
